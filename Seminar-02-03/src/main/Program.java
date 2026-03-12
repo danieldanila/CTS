@@ -3,21 +3,23 @@ package main;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-import clase.Angajat;
-import clase.Utils;
+import clase.Aplicant;
+import readers.AplicantReader;
+import readers.ElevReader;
 
 public class Program {
 
 	public static void main(String[] args) {
-		List<Angajat> listaAngajati;
+		List<Aplicant> listaElevi;
+		AplicantReader reader = new ElevReader();
 		try {
-			listaAngajati = Utils.readAngajati("angajati.txt");
-			for(Angajat angajat:listaAngajati)
-				System.out.println(angajat.toString());
+			listaElevi = reader.citireAplicanti("elevi.txt");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		for (Aplicant aplicant : listaElevi) {
+			System.out.println(aplicant.toString());
+			aplicant.afisareStatutAplicant();
 		}
 	}
-
 }
