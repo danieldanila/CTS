@@ -94,7 +94,7 @@ class PachetTuristicTest {
         pachet.aplicaDiscountVarstnici(10);
 
         assertEquals(1000.0, pachet.getPret(),"Prețul nu ar trebui să se modifice pentru un client non-vârstnic");
-        assertEquals(1, stubSpy.getGetVarstaNumarApeluri(), "getVarsta() ar trebui să fie apelat exact o dată pentru verificarea vârstei");
+        assertEquals(1, stubSpy.getGetVarstaNumarApeluri(), "getVarsta() ar trebui să fie apelat exact o dată pentru aplicarea discountului");
     }
 
     @Tag("mockito")
